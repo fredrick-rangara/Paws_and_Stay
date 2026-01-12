@@ -5,7 +5,20 @@ server/node_modules/
 
 # Environment variables
 .env
+server/venv
+
 
 # Build outputs
 client/build/
 dist/
+
+
+# Python / Flask
+
+
+__pycache__/
+*.pyc
+instance/
+server/instance/
+migrations/
+server/migrations/
