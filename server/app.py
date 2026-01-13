@@ -20,7 +20,13 @@ def index():
 def create_stay_session():
     data = request.get_json()
 
-    
+    try:
+        new_session = StaySession(
+            pet_id=data.get('pet_id'),
+            sitter_id=data.get('sitter_id'),
+            daily_rate=float(data.get('daily_rate')),
+            special_instructions=data.get('special_instructions')
+        )
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
