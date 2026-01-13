@@ -11,3 +11,10 @@ function BookingForm() {
         fetch('http://localhost:5555/pets').then(r => r.json()).then(setPets);
         fetch('http://localhost:5555/users').then(r => r.json()).then(setSitters);
     }, []);
+
+    const schema = yup.object().shape({
+        pet_id: yup.string().required("Please select a pet"),
+        sitter_id: yup.string().required("Please select a sitter"),
+        daily_rate: yup.number().required("Rate is required").positive(),
+        special_instructions: yup.string().min(5, "Give the sitter more detail!")
+    });
