@@ -33,3 +33,32 @@ function BookingForm() {
             });
         }
     });
+
+    return (
+        <form onSubmit={formik.handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '10px' }}>
+            <h2>Book a Stay</h2>
+
+            <label>Select Pet</label>
+            <select name="pet_id" value={formik.values.pet_id} onChange={formik.handleChange}>
+                <option value="">-- Choose Pet --</option>
+                {pets.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+            </select>
+
+            <label>Select Sitter</label>
+            <select name="sitter_id" value={formik.values.sitter_id} onChange={formik.handleChange}>
+                <option value="">-- Choose Sitter --</option>
+                {sitters.map(s => <option key={s.id} value={s.id}>{s.username}</option>)}
+            </select>
+
+            <label>Daily Rate ($)</label>
+            <input name="daily_rate" type="number" onChange={formik.handleChange} value={formik.values.daily_rate} />
+
+            <label>Instructions</label>
+            <textarea name="special_instructions" onChange={formik.handleChange} value={formik.values.special_instructions} />
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    );
+}
+
+export default BookingForm;
