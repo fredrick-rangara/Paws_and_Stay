@@ -16,5 +16,11 @@ CORS(app)
 def index():
     return {"message": "Paws & Stay API is running!"}
 
+@app.route('/stay_sessions', methods=['POST'])
+def create_stay_session():
+    data = request.get_json()
+
+    
+
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
